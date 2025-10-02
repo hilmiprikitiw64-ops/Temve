@@ -1,0 +1,420 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMK Al Asyariyah — Web Resmi Grub SMEKAL</title>
+  <meta name="description" content="Website perkenalan Grub SMEKAL, SMK Al Asyariyah — profil, program unggulan, galeri, berita, kontak, dan portofolio." /> <!-- Fonts --> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet"> <style>
+    :root{
+      --bg:#071226;
+      --panel:#0b1220;
+      --muted:#a8b3c2;
+      --accent:#7c3aed;
+      --accent-2:#06b6d4;
+      --glass:rgba(255,255,255,0.03);
+      --radius:14px;
+      --maxw:1200px;
+      --gold:#f5c06a;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;
+      background:linear-gradient(180deg,#031025 0%,#071226 45%, #08132a 100%);
+      color:#e8f0fb;line-height:1.5;-webkit-font-smoothing:antialiased;padding:24px;
+    }
+    .container{max-width:var(--maxw);margin:0 auto}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#031025;font-family:Playfair Display,serif}
+    .brand h1{margin:0;font-family:Playfair Display,serif;font-size:20px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{display:flex;align-items:center;gap:10px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    nav a:hover{color:var(--accent);background:rgba(124,58,237,0.06)}
+
+    .cta{background:linear-gradient(90deg,var(--accent),#4f46e5);padding:10px 14px;border-radius:12px;color:white;text-decoration:none;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin:18px 0 34px}
+    @media (max-width:980px){.hero{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:24px;box-shadow:0 10px 40px rgba(0,0,0,0.6);backdrop-filter:blur(6px)}
+
+    .hero .intro h2{font-family:Playfair Display, serif;font-size:32px;margin:0 0 12px}
+    .lead{color:var(--muted);font-size:15px;margin-bottom:16px}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+    .badge{background:var(--glass);padding:8px 10px;border-radius:999px;font-weight:700;color:var(--muted);font-size:13px}
+
+    .btn{padding:10px 14px;border-radius:12px;border:0;font-weight:700;cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--accent),#4f46e5);color:white}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#dff2ff}
+
+    .profile{display:flex;flex-direction:column;gap:12px}
+    .avatar{width:100%;height:420px;border-radius:12px;background:#fff url('foto_grub_smekal.jpg') center/cover no-repeat}
+    .meta{display:flex;justify-content:space-between;gap:12px;align-items:center}
+    .meta .left{display:flex;gap:12px;align-items:center}
+
+    /* Sections */
+    section{margin-bottom:22px}
+    section h3{margin:0 0 12px;font-family:Playfair Display,serif;color:var(--accent)}
+    .muted{color:var(--muted)}
+
+    /* Two column grid */\ .two-col{display:grid;grid-template-columns:1fr 380px;gap:20px}
+    @media (max-width:980px){.two-col{grid-template-columns:1fr}}
+
+    /* Program */
+    .programs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media (max-width:980px){.programs{grid-template-columns:1fr}}
+    .program{padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    @media (max-width:980px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    .photo{height:120px;border-radius:10px;background-size:cover;background-position:center}
+
+    /* Testimonials */
+    .testi{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px}
+
+    /* News */
+    .news-list{display:flex;flex-direction:column;gap:12px}
+    .news-item{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)}
+    .news-item img{width:96px;height:64px;border-radius:8px;object-fit:cover}
+
+    /* Extras */
+    .extra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width:980px){.extra-grid{grid-template-columns:1fr}}
+
+    /* Contact form */
+    .form-row{display:flex;gap:8px}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    button[type=submit]{background:linear-gradient(90deg,var(--accent),#4f46e5);color:white;padding:10px 16px;border-radius:10px;border:0}
+
+    footer{display:flex;flex-direction:column;gap:10px;padding:18px 0;color:var(--muted)}
+
+    /* Exit modal */
+    .modal{position:fixed;inset:0;background:rgba(1,6,14,0.7);display:flex;align-items:center;justify-content:center;z-index:999;opacity:0;pointer-events:none;transition:.25s}
+    .modal.show{opacity:1;pointer-events:auto}
+    .modal-card{background:linear-gradient(180deg,#061226,#07132a);padding:24px;border-radius:16px;max-width:520px;text-align:center}
+    .modal-card h3{margin-bottom:8px;color:var(--gold)}
+    .close-x{position:absolute;top:18px;right:18px;color:var(--muted);cursor:pointer}
+
+    /* small */
+    .small{font-size:13px;color:var(--muted)}
+    a{color:var(--accent)}
+
+  </style></head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">SM</div>
+        <div>
+          <h1>SMK Al Asyariyah</h1>
+          <p class="small">Grub SMEKAL — Web Perkenalan Resmi</p>
+        </div>
+      </div><nav>
+    <a href="#home">Home</a>
+    <a href="#about">Tentang</a>
+    <a href="#programs">Program</a>
+    <a href="#gallery">Galeri</a>
+    <a href="#news">Berita</a>
+    <a href="#alumni">Alumni</a>
+    <a class="cta" href="#contact">Gabung</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="card intro">
+      <h2>Selamat Datang di <span style="color:var(--accent)">Website Pertama</span> Grub SMEKAL</h2>
+      <p class="lead">Assalamu'alaikum & halo! Kami bangga mempersembahkan website perkenalan pertama Grub SMEKAL — kumpulan pelajar kreatif dari <strong>SMK Al Asyariyah</strong>. Di sini kamu bisa lihat profil, program, portofolio project kami, serta cara bergabung. Semoga website ini jadi langkah awal kami menuju karya yang lebih besar.</p>
+
+      <div class="badges">
+        <div class="badge">SMK Al Asyariyah</div>
+        <div class="badge">Web & Desain</div>
+        <div class="badge">IoT & Prototipe</div>
+        <div class="badge">Android Dev</div>
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:18px">
+        <button class="btn primary" onclick="scrollTo('#contact')">Gabung Sekarang</button>
+        <a class="btn ghost" href="#programs">Lihat Program</a>
+      </div>
+
+      <div style="margin-top:18px;color:var(--muted);font-size:13px">Website ini dibuat oleh anggota SMEKAL sebagai portofolio dan dokumentasi kegiatan. Untuk versi produksi profesional (layanan design & dev) estimasi setara dengan paket web premium.</div>
+    </div>
+
+    <aside class="profile card">
+      <div class="avatar" role="img" aria-label="Foto Grub SMEKAL"></div>
+      <div class="meta">
+        <div class="left">
+          <div>
+            <div style="font-weight:700">Grub SMEKAL</div>
+            <div class="small">SMK Al Asyariyah — Jurusan: TKJ, RPL, Multimedia</div>
+          </div>
+        </div>
+        <div>
+          <div class="small">Terbentuk: 2025</div>
+          <div class="small">Anggota aktif: 12</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn ghost" onclick="copyText('smekal_official')">Copy IG</button>
+        <a class="btn primary" href="#contact">Kirim Pesan</a>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ABOUT & HISTORY -->
+  <section id="about" class="card">
+    <h3>Tentang Sekolah & Sejarah Singkat</h3>
+    <div class="two-col">
+      <div>
+        <p class="muted">SMK Al Asyariyah berdiri sejak 1998 dengan visi mencetak lulusan terampil dan profesional. Kami memiliki beberapa jurusan unggulan: Teknik Komputer Jaringan (TKJ), Rekayasa Perangkat Lunak (RPL), Multimedia, dan Bisnis Digital. Grub SMEKAL dibentuk untuk menjembatani siswa berkreasi dan mengimplementasikan ilmu ke project nyata.</p>
+
+        <h4 style="margin-top:12px">Struktur Organisasi (singkat)</h4>
+        <ul class="muted" style="padding-left:18px;margin-top:8px">
+          <li>Ketua: Nama Ketua</li>
+          <li>Wakil: Nama Wakil</li>
+          <li>Koordinator Web: Nama</li>
+          <li>Koordinator Hardware: Nama</li>
+        </ul>
+
+        <h4 style="margin-top:12px">Mengapa bergabung?</h4>
+        <ul class="muted" style="padding-left:18px;margin-top:8px">
+          <li>Belajar langsung lewat project</li>
+          <li>Dapat sertifikat internal</li>
+          <li>Kesempatan ikut lomba & kolaborasi</li>
+        </ul>
+      </div>
+
+      <aside style="padding-left:12px">
+        <div style="background:rgba(255,255,255,0.02);padding:12px;border-radius:12px">
+          <h4>Informasi Sekolah</h4>
+          <div class="small">Alamat: Jl. Pendidikan No.1 — Kota Contoh</div>
+          <div class="small">Email: info@smkalasyariyah.sch.id</div>
+          <div class="small">Telp: (021) 555-0123</div>
+          <div style="margin-top:8px">
+            <a class="small" href="#gallery">Lihat Galeri</a>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)">
+          <h4>Program Unggulan</h4>
+          <div class="small">TKJ — Networking & Infrastruktur</div>
+          <div class="small">RPL — Software & Mobile App</div>
+          <div class="small">Multimedia — Desain & Konten</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- VISION & MISSION -->
+  <section id="vision-mission" class="card">
+    <h3>Visi, Misi & Tujuan Strategis</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div>
+        <h4>Visi</h4>
+        <p class="muted">Menjadi pusat kreativitas dan kompetensi vokasional yang menghasilkan lulusan berdaya saing di bidang teknologi dan industri kreatif.</p>
+
+        <h4 style="margin-top:10px">Tujuan Strategis</h4>
+        <ol class="muted" style="padding-left:18px;margin-top:8px">
+          <li>Meningkatkan kualitas pengajaran berbasis project.</li>
+          <li>Membangun jaringan industri untuk penempatan kerja.</li>
+          <li>Meningkatkan partisipasi siswa di lomba regional/nasional.</li>
+        </ol>
+      </div>
+
+      <div>
+        <h4>Misi</h4>
+        <ul class="muted" style="padding-left:18px;margin-top:8px">
+          <li>Menyelenggarakan kurikulum praktik yang relevan industri.</li>
+          <li>Mengadakan pelatihan guru & siswa secara berkala.</li>
+          <li>Mendukung inisiatif kreatif siswa melalui pendanaan kecil.</li>
+        </ul>
+
+        <h4 style="margin-top:10px">Nilai Inti</h4>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+          <span class="badge">Integritas</span>
+          <span class="badge">Kolaborasi</span>
+          <span class="badge">Inovasi</span>
+          <span class="badge">Profesional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section id="programs" class="card">
+    <h3>Program & Pelatihan</h3>
+    <div class="programs">
+      <div class="program">
+        <h4>Teknik Komputer & Jaringan (TKJ)</h4>
+        <p class="muted">Materi: jaringan, server, security dasar, konfigurasi perangkat. Praktikum lab tiap minggu.</p>
+      </div>
+      <div class="program">
+        <h4>Rekayasa Perangkat Lunak (RPL)</h4>
+        <p class="muted">Materi: pemrograman, algoritma, mobile app (Android), version control, deployment.</p>
+      </div>
+      <div class="program">
+        <h4>Multimedia & Desain</h4>
+        <p class="muted">Materi: desain grafis, UI/UX, video editing, pembuatan konten digital untuk sosial media.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:12px">
+      <h4>Workshop & Sertifikasi</h4>
+      <p class="muted">Kami rutin mengadakan workshop singkat: Git & GitHub, Figma, Arduino dasar, Python untuk IoT, dan persiapan sertifikasi kompetensi.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="card">
+    <h3>Galeri Kegiatan & Prestasi</h3>
+    <div class="gallery" id="galleryGrid">
+      <div class="photo" style="background-image:url('gallery/1.jpg')"></div>
+      <div class="photo" style="background-image:url('gallery/2.jpg')"></div>
+      <div class="photo" style="background-image:url('gallery/3.jpg')"></div>
+      <div class="photo" style="background-image:url('gallery/4.jpg')"></div>
+      <div class="photo" style="background-image:url('gallery/5.jpg')"></div>
+      <div class="photo" style="background-image:url('gallery/6.jpg')"></div>
+      <div class="photo" style="background-image:url('gallery/7.jpg')"></div>
+      <div class="photo" style="background-image:url('gallery/8.jpg')"></div>
+    </div>
+    <div style="margin-top:12px;color:var(--muted)">Catatan: Ganti file gambar di folder <code>/gallery/</code> dengan foto kegiatan kalian (jpg/png, minimal 1200x800 untuk hasil terbaik).</div>
+  </section>
+
+  <!-- NEWS & ANNOUNCE -->
+  <section id="news" class="card">
+    <h3>Berita & Pengumuman</h3>
+    <div class="news-list" id="newsList">
+      <!-- JS will populate sample news -->
+    </div>
+    <div style="margin-top:12px;color:var(--muted)">Ingin mengirim pengumuman? Hubungi admin melalui form kontak.</div>
+  </section>
+
+  <!-- ALUMNI TESTIMONIALS -->
+  <section id="alumni" class="card">
+    <h3>Testimoni Alumni</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div class="testi">
+        <strong>Rina (Alumni RPL)</strong>
+        <p class="muted">"Gabung SMEKAL bantu aku dapat pengalaman bikin aplikasi. Sekarang aku kerja di startup sebagai junior dev."</p>
+      </div>
+      <div class="testi">
+        <strong>Budi (Alumni TKJ)</strong>
+        <p class="muted">"Proyek IoT waktu sekolah jadi portofolio yang bikin aku diterima magang di perusahaan telekomunikasi."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTRACURRICULAR -->
+  <section id="extra" class="card">
+    <h3>Ekstrakurikuler & Kegiatan</h3>
+    <div class="extra-grid">
+      <div style="padding:12px;background:rgba(255,255,255,0.02);border-radius:12px">
+        <strong>Praktikum Robotika</strong>
+        <p class="muted">Belajar mekanika & mikrokontroler.</p>
+      </div>
+      <div style="padding:12px;background:rgba(255,255,255,0.02);border-radius:12px">
+        <strong>UKM Seni Digital</strong>
+        <p class="muted">Kreasi konten & desain grafis.</p>
+      </div>
+      <div style="padding:12px;background:rgba(255,255,255,0.02);border-radius:12px">
+        <strong>Tim Lomba</strong>
+        <p class="muted">Persiapan lomba kompetensi siswa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achieve" class="card">
+    <h3>Prestasi & Penghargaan</h3>
+    <ul style="padding-left:18px;color:var(--muted)">
+      <li>Juara 1 Lomba Web Sekolah Provinsi — 2024</li>
+      <li>Juara 2 Lomba IoT Regional — 2023</li>
+      <li>Sekolah Terbaik Favorit — 2022</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="card">
+    <h3>Kontak & Gabung</h3>
+    <div class="two-col">
+      <div>
+        <p class="muted">Isi formulir di samping untuk bergabung atau konsultasi project. Kami akan menanggapi secepatnya.</p>
+
+        <h4 style="margin-top:12px">Media Sosial Resmi</h4>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+          <a href="https://www.instagram.com/mediasmkalasyariyah" target="_blank" class="small">Instagram: @mediasmkalasyariyah</a>
+          <a href="https://www.tiktok.com/@smk_al_asyariyah" target="_blank" class="small">TikTok: @smk_al_asyariyah</a>
+          <a href="mailto:info@smkalasyariyah.sch.id" class="small">Email: info@smkalasyariyah.sch.id</a>
+          <a href="https://www.youtube.com/@mediasmkal-asyariyah" target="_blank" class="small">YouTube: Media SMK Al-Asyariyah</a>
+        </div>
+
+        <h4 style="margin-top:12px">Lokasi Sekolah</h4>
+        <div style="height:220px;border-radius:12px;overflow:hidden;background:rgba(255,255,255,0.02)">
+          <!-- Placeholder for map iframe. Replace src with embed link from Google Maps -->
+          <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed" style="width:100%;height:100%;border:0" loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <aside>
+        <form id="contactForm">
+          <label class="small">Nama</label>
+          <input id="fullname" required placeholder="Nama lengkap" />
+          <label class="small" style="margin-top:8px">Email</label>
+          <input id="email" type="email" required placeholder="email@domain.com" />
+          <label class="small" style="margin-top:8px">Jabatan / Note</label>
+          <select id="role">
+            <option value="siswa">Siswa</option>
+            <option value="guru">Guru</option>
+            <option value="alumni">Alumni</option>
+            <option value="lainnya">Lainnya</option>
+          </select>
+          <label class="small" style="margin-top:8px">Pesan</label>
+          <textarea id="message" rows="6" placeholder="Tulis pesan singkat..." required></textarea>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <button type="submit">Kirim Pesan</button>
+            <button type="button" onclick="document.getElementById('contactForm').reset()" class="btn ghost">Reset</button>
+          </div>
+          <div id="formStatus" class="small" style="margin-top:10px;color:var(--muted)"></div>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <!-- DOWNLOADS & RESOURCES -->
+  <section id="resources" class="card">
+    <h3>Download & Resource</h3>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn ghost" href="#">Dokumen Profil Sekolah (PDF)</a>
+      <a class="btn ghost" href="#">Brosur Program (PNG)</a>
+      <a class="btn ghost" href="#">Template Presentasi (PPTX)</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+      <div>
+        <div style="font-weight:700">SMK Al Asyariyah — Grub SMEKAL</div>
+        <div class="small">© <span id="year"></span> Semua hak dilindungi.</div>
+      </div>
+      <div class="small">Built with ❤️ — SMEKAL Team • Versi demo</div>
+    </div>
+  </footer>
+</main>
+
+  </div> <!-- Exit modal (rich farewell) --> <div class="modal" id="farewellModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="fareTitle">
+      <div class="close-x" onclick="closeModal()">✕</div>
+      <h3 id="fareTitle">Terima Kasih & Sampai Jumpa!</h3>
+      <p class="muted">Terima kasih sudah mengunjungi website resmi Grub SMEKAL — SMK Al Asyariyah. Semoga hari kamu menyenangkan. Jangan lupa follow media sosial kami untuk update kegiatan & project.</p>
+      <div style="margin-top:14px;display:flex;gap:8px;justify-content:center">
+        <a class="btn primary" href="https://www.instagram.com/mediasmkalasyariyah" target="_blank">Follow IG</a>
+        <button class="btn ghost" onc
